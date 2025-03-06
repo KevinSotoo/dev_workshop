@@ -17,72 +17,71 @@ class Strings:
             x-=1
         return True
     
-    def invertir_cadena(self,texto:str)->str:
+    def invertir_cadena(self,texto):
         resultado=""
         for letra in texto:
             resultado=letra+resultado
         return resultado
     
-    def contar_vocales(self, texto):
-        """
-        Cuenta el número de vocales en una cadena.
-        
-        Args:
-            texto (str): Cadena para contar vocales
-            
-        Returns:
-            int: Número de vocales en la cadena
-        """
-        pass
+    def contar_vocales(self,texto):
+        vocales="aeiouAEIOU"
+        contador=0
+        for letra in texto:
+            if letra in vocales:
+                contador+=1
+        return contador
     
-    def contar_consonantes(self, texto):
-        """
-        Cuenta el número de consonantes en una cadena.
-        
-        Args:
-            texto (str): Cadena para contar consonantes
-            
-        Returns:
-            int: Número de consonantes en la cadena
-        """
-        pass
+    def contar_consonantes(self,texto):
+        vocales="aeiouAEIOU"
+        contador=0
+        for letra in texto:
+            es_letra='a'<=letra<='z' or 'A'<=letra<='Z'
+            es_vocal=letra in vocales
+            if es_letra and es_vocal==False:
+                contador+=1
+        return contador
     
-    def es_anagrama(self, texto1, texto2):
-        """
-        Verifica si dos cadenas son anagramas (contienen exactamente los mismos caracteres).
-        
-        Args:
-            texto1 (str): Primera cadena
-            texto2 (str): Segunda cadena
-            
-        Returns:
-            bool: True si son anagramas, False en caso contrario
-        """
-        pass
+    def es_anagrama(self,texto1,texto2):
+        caracteres={}
+        for letra in texto1:
+            if letra in caracteres:
+                caracteres[letra]+=1
+            else:
+                caracteres[letra]=1
+        for letra in texto2:
+            if letra in caracteres:
+                caracteres[letra]-=1
+            else:
+                return False
+        for letra in caracteres:
+            if caracteres[letra]!=0:
+                return False
+        return True
+
+    def contar_palabras(self,texto):
+        contador=0
+        en_palabra=False
+        for letra in texto:
+            if letra!=" ":
+                if en_palabra==False:
+                    contador+=1
+                    en_palabra=True
+            else:
+                en_palabra=False
+        return contador
     
-    def contar_palabras(self, texto):
-        """
-        Cuenta el número de palabras en una cadena.
-        
-        Args:
-            texto (str): Cadena para contar palabras
-            
-        Returns:
-            int: Número de palabras en la cadena
-        """
-        pass
-    
-    def palabras_mayus(self, texto):
-        """
-        Pon en Mayuscula la primera letra de cada palabra en una cadena.
-        
-        Args:
-            texto (str): Cadena
-            
-        Returns:
-            str: Cadena con la primera letra de cada palabra en mayúscula
-        """
-        pass
+    def palabras_mayus(self,texto):
+        resultado=""
+        mayus=True
+        for letra in texto:        
+            if mayus and ('a'<=letra<='z' or 'A'<=letra<='Z'):
+                resultado+=letra.upper()#sirve para convertir primer letra en mayus
+                mayus=False
+            else:
+                resultado+=letra
+            if letra==" ":
+                mayus=True
+        return resultado
     
     def eliminar_espacios_duplicados(self, texto):
         """
