@@ -83,65 +83,77 @@ class Strings:
                 mayus=True
         return resultado
     
-    def eliminar_espacios_duplicados(self, texto):
-        """
-        Elimina espacios duplicados en una cadena.
-        
-        Args:
-            texto (str): Cadena con posibles espacios duplicados
-            
-        Returns:
-            str: Cadena sin espacios duplicados
-        """
-        pass
+    def eliminar_espacios_duplicados(self,texto):
+        resultado=""
+        space=False
+        for letra in texto:
+            if letra!=" ":
+                resultado+=letra
+                space=False
+            elif space==False:
+                resultado+=letra
+                space=True
+        return resultado
     
     def es_numero_entero(self, texto):
-        """
-        Verifica si una cadena representa un número entero sin usar isdigit().
-        
-        Args:
-            texto (str): Cadena a verificar
-            
-        Returns:
-            bool: True si la cadena representa un número entero, False en caso contrario
-        """
-        pass
+        if texto=="":
+            return False
     
-    def cifrar_cesar(self, texto, desplazamiento):
-        """
-        Aplica el cifrado César a una cadena de texto.
-        
-        Args:
-            texto (str): Cadena a cifrar
-            desplazamiento (int): Número de posiciones a desplazar cada letra
-            
-        Returns:
-            str: Cadena cifrada
-        """
-        pass
+        if texto[0]=='-':
+            if texto[1:]=="":
+                return False
+            texto = texto[1:]
     
-    def descifrar_cesar(self, texto, desplazamiento):
-        """
-        Descifra una cadena cifrada con el método César.
-        
-        Args:
-            texto (str): Cadena cifrada
-            desplazamiento (int): Número de posiciones que se desplazó cada letra
-            
-        Returns:
-            str: Cadena descifrada
-        """
-        pass
+        for caracter in texto:
+            if caracter < '0' or caracter > '9':
+                return False
     
-    def encontrar_subcadena(self, texto, subcadena):
-        """
-        Encuentra todas las posiciones de una subcadena en un texto sin usar find() o index().
-        
-        Args:
-            texto (str): Cadena principal
-            subcadena (str): Subcadena a buscar
-            
-        Returns:
-            list: Lista con las posiciones iniciales de cada ocurrencia
-        """
-        pass
+        return True
+    
+    def cifrar_cesar(self,texto,desplazamiento):
+        resultado=""
+        for simbolo in texto:
+            if 'a'<=simbolo<='z':
+                mayuscula=simbolo.upper()
+                nueva_letra=((ord(mayuscula)-ord('A')+desplazamiento)%26)+ord('A')  ##Se usa ord para obtener el valor numerico del carácter y chr para convertirlo nuevamente en una letra 
+                resultado+=chr(nueva_letra)
+            elif 'A'<=simbolo<='Z':
+                nueva_letra=((ord(simbolo)-ord('A')+desplazamiento)%26)+ord('A')
+                resultado+=chr(nueva_letra)
+            else:
+                resultado+=simbolo
+        return resultado
+    
+    def descifrar_cesar(self,texto,desplazamiento):
+        resultado=""
+        for simbolo in texto:
+            if 'a'<=simbolo<='z':
+                mayuscula=simbolo.upper()
+                nueva_letra=((ord(mayuscula)-ord('A')-desplazamiento)%26)+ord('A')
+                resultado+=chr(nueva_letra)
+            elif 'A'<=simbolo<='Z':
+                nueva_letra=((ord(simbolo)-ord('A')-desplazamiento)%26)+ord('A') ##con el menos invertimos la funcion anterior
+                resultado+=chr(nueva_letra)
+            else:
+                resultado+=simbolo
+        return resultado
+    
+    def encontrar_subcadena(self,texto,subcadena):
+        posiciones=""
+        i=0
+        longitud_sub=0
+        for caracter in subcadena:
+            longitud_sub+=1
+        while True:
+            longitud_texto=0
+            for caracter in texto[i:]:
+                longitud_texto+=1
+            if longitud_texto<longitud_sub:
+                break
+            contador=0
+            while contador<longitud_sub and texto[i+contador]==subcadena[contador]:
+                contador+=1
+            if contador==longitud_sub:
+                posiciones+=str(i)+" "
+            i+=1
+        return posiciones
