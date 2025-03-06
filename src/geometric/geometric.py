@@ -5,145 +5,68 @@ class Geometria:
     """
     
     def area_rectangulo(self, base, altura):
-        resultado = base * altura
+        resultado=base*altura
         return resultado
 
     def perimetro_rectangulo(self, base, altura):
-        resultado = 2 * (base + altura)
+        resultado=2*(base+altura)
         return resultado
 
     def area_circulo(self, radio):
-        resultado = math.pi * radio ** 2
+        resultado=math.pi*radio**2
         return resultado
 
     def perimetro_circulo(self, radio):
-        resultado = 2 * math.pi * radio
+        resultado=2*math.pi*radio
         return resultado
 
     def area_triangulo(self, base, altura):
-        resultado = (base * altura) / 2
+        resultado=(base*altura)/2
         return resultado
 
     def perimetro_triangulo(self, lado1, lado2, lado3):
-        resultado = lado1 + lado2 + lado3
+        resultado=lado1+lado2+lado3
         return resultado
 
     def es_triangulo_valido(self, lado1, lado2, lado3):
-        resultado = lado1 + lado2 > lado3 and lado1 + lado3 > lado2 and lado2 + lado3 > lado1
+        resultado=lado1+lado2>lado3 and lado1+lado3>lado2 and lado2+lado3>lado1
         return resultado
     
     def area_trapecio(self, base_mayor, base_menor, altura):
-        """
-        Calcula el área de un trapecio.
-        
-        Args:
-            base_mayor (float): Longitud de la base mayor
-            base_menor (float): Longitud de la base menor
-            altura (float): Altura del trapecio
-            
-        Returns:
-            float: Área del trapecio
-        """
-        pass
-    
+        resultado=((base_mayor+base_menor)*altura)/2
+        return resultado
+
     def area_rombo(self, diagonal_mayor, diagonal_menor):
-        """
-        Calcula el área de un rombo usando sus diagonales.
-        
-        Args:
-            diagonal_mayor (float): Longitud de la diagonal mayor
-            diagonal_menor (float): Longitud de la diagonal menor
-            
-        Returns:
-            float: Área del rombo
-        """
-        pass
-    
+        resultado=(diagonal_mayor*diagonal_menor)/2
+        return resultado
+
     def area_pentagono_regular(self, lado, apotema):
-        """
-        Calcula el área de un pentágono regular.
-        
-        Args:
-            lado (float): Longitud del lado del pentágono
-            apotema (float): Longitud de la apotema (distancia del centro al punto medio de un lado)
-            
-        Returns:
-            float: Área del pentágono regular
-        """
-        pass
-    
+        resultado=(5*lado*apotema)/2
+        return resultado
+
     def perimetro_pentagono_regular(self, lado):
-        """
-        Calcula el perímetro de un pentágono regular.
-        
-        Args:
-            lado (float): Longitud del lado del pentágono
-            
-        Returns:
-            float: Perímetro del pentágono regular
-        """
-        pass
-    
+        resultado=5*lado
+        return resultado
+
     def area_hexagono_regular(self, lado, apotema):
-        """
-        Calcula el área de un hexágono regular.
-        
-        Args:
-            lado (float): Longitud del lado del hexágono
-            apotema (float): Longitud de la apotema (distancia del centro al punto medio de un lado)
-            
-        Returns:
-            float: Área del hexágono regular
-        """
-        pass
-    
+        resultado=(6*lado*apotema)/2
+        return resultado
+
     def perimetro_hexagono_regular(self, lado):
-        """
-        Calcula el perímetro de un hexágono regular.
-        
-        Args:
-            lado (float): Longitud del lado del hexágono
-            
-        Returns:
-            float: Perímetro del hexágono regular
-        """
-        pass
-    
+        resultado=6*lado
+        return resultado
+
     def volumen_cubo(self, lado):
-        """
-        Calcula el volumen de un cubo.
-        
-        Args:
-            lado (float): Longitud del lado del cubo
-            
-        Returns:
-            float: Volumen del cubo
-        """
-        pass
-    
+        resultado=lado**3
+        return resultado
+
     def area_superficie_cubo(self, lado):
-        """
-        Calcula el área de la superficie de un cubo.
-        
-        Args:
-            lado (float): Longitud del lado del cubo
-            
-        Returns:
-            float: Área de la superficie del cubo
-        """
-        pass
-    
+        resultado=6*lado**2
+        return resultado
+
     def volumen_esfera(self, radio):
-        """
-        Calcula el volumen de una esfera.
-        
-        Args:
-            radio (float): Radio de la esfera
-            
-        Returns:
-            float: Volumen de la esfera
-        """
-        pass
+        resultado=(4/3)*math.pi*radio**3
+        return resultado
     
     def area_superficie_esfera(self, radio):
         """
