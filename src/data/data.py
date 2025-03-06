@@ -31,64 +31,64 @@ class Data:
         return lista_nueva
     
     def merge_ordenado(self, lista1, lista2):
-        """
-        Combina dos listas ordenadas en una sola lista ordenada.
-        
-        Args:
-            lista1 (list): Primera lista ordenada
-            lista2 (list): Segunda lista ordenada
-            
-        Returns:
-            list: Lista combinada y ordenada
-        """
-        pass
+        resultado=[]
+        x=y=0
+        contador1=0
+        for x in lista1:
+            contador1+=1
+        contador2=0
+        for y in lista2:
+            contador2+=1
+        x=y=0
+        while x<contador1 or y<contador2:
+            if y==contador2 or (x<contador1 and lista1[x]<lista2[y]):
+                resultado+=[lista1[x]]
+                x+=1
+            else:
+                resultado+=[lista2[y]]
+                y+=1
+        return resultado
     
     def rotar_lista(self, lista, k):
-        """
-        Rota los elementos de una lista k posiciones a la derecha.
-        
-        Args:
-            lista (list): Lista a rotar
-            k (int): Número de posiciones a rotar
-            
-        Returns:
-            list: Lista rotada
-        """
-        pass
+        n=0
+        for x in lista:
+            n+=1
+        if n==0:
+            return lista
+        k%=n
+        return lista[-k:]+lista[:-k]
     
     def encuentra_numero_faltante(self, lista):
-        """
-        Encuentra el número faltante en una lista de enteros del 1 al n.
-        
-        Args:
-            lista (list): Lista de enteros del 1 al n con un número faltante
-            
-        Returns:
-            int: El número que falta en la secuencia
-        """
-        pass
+        total=0
+        n=0
+        for numero in lista:
+            total+=numero
+            n+=1
+        return (n*(n+1))//2-total #se usa formula de suma de los primeros n
     
     def es_subconjunto(self, conjunto1, conjunto2):
-        """
-        Verifica si conjunto1 es subconjunto de conjunto2 sin usar set.
-        
-        Args:
-            conjunto1 (list): Posible subconjunto
-            conjunto2 (list): Conjunto principal
-            
-        Returns:
-            bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
-        """
-        pass
+        for elemento in conjunto1:
+            encontrado=False
+            for x in conjunto2:
+                if x==elemento:
+                    encontrado=True
+                    break
+            if encontrado==False:
+                return False
+        return True
     
     def implementar_pila(self):
-        """
-        Implementa una estructura de datos tipo pila (stack) usando listas.
-        
-        Returns:
-            dict: Diccionario con métodos push, pop, peek y is_empty
-        """
-        pass
+        pila=[]
+        def push(valor):
+            pila+=[valor]
+        def pop():
+            if pila:
+                nueva_pila=[]
+                for x in pila:
+                    nueva_pila+=[x]
+                valor=nueva_pila[-1]
+                pila[:]=[nueva_pila[x] for x in range(nueva_pila[-1])]
+                return valor
     
     def implementar_cola(self):
         """
