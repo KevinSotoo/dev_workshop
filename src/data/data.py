@@ -83,30 +83,33 @@ class Data:
             pila+=[valor]
         def pop():
             if pila:
-                nueva_pila=[]
-                for x in pila:
-                    nueva_pila+=[x]
-                valor=nueva_pila[-1]
-                pila[:]=[nueva_pila[x] for x in range(nueva_pila[-1])]
-                return valor
+                return pila.pop()
+        def peek():
+            if pila:
+                return pila[-1]
+        def is_empty():
+            return pila==[]
+        return {"push":push,"pop":pop,"peek":peek,"is_empty":is_empty}
     
     def implementar_cola(self):
-        """
-        Implementa una estructura de datos tipo cola (queue) usando listas.
-        
-        Returns:
-            dict: Diccionario con métodos enqueue, dequeue, peek y is_empty
-        """
-        pass
+        cola=[]
+        def enqueue(valor):
+            cola+=[valor]
+        def dequeue():
+            if cola:
+                return cola.pop(0)
+        def peek():
+            if cola:
+                return cola[0]
+        def is_empty():
+            return cola==[]
+        return {"enqueue":enqueue,"dequeue":dequeue,"peek":peek,"is_empty":is_empty}
     
     def matriz_transpuesta(self, matriz):
-        """
-        Calcula la transpuesta de una matriz.
-        
-        Args:
-            matriz (list): Lista de listas que representa una matriz
-            
-        Returns:
-            list: Matriz transpuesta
-        """
-        pass
+        filas=0
+        for x in matriz:
+            filas+=1
+        columnas=0
+        for y in matriz[0]:
+            columnas+=1
+        return [[matriz[fila][x] for fila in range(filas)] for x in range(columnas)]
