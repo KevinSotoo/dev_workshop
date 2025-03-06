@@ -4,29 +4,24 @@ class Strings:
     Incluye funciones para manipular, validar y transformar strings.
     """
     
-    def es_palindromo(self, texto):
-        """
-        Verifica si una cadena es un palíndromo (se lee igual de izquierda a derecha y viceversa).
-        
-        Args:
-            texto (str): Cadena a verificar
-            
-        Returns:
-            bool: True si es palíndromo, False en caso contrario
-        """
-        pass
+    def es_palindromo(self,texto):
+        i=0
+        x=0
+        for letra in texto:
+            x+=1
+        x-=1
+        while i<x:
+            if texto[i]!=texto[x]:
+                return False
+            i+=1
+            x-=1
+        return True
     
-    def invertir_cadena(self, texto):
-        """
-        Invierte una cadena de texto sin usar slicing ni reversed().
-        
-        Args:
-            texto (str): Cadena a invertir
-            
-        Returns:
-            str: Cadena invertida
-        """
-        pass
+    def invertir_cadena(self,texto:str)->str:
+        resultado=""
+        for letra in texto:
+            resultado=letra+resultado
+        return resultado
     
     def contar_vocales(self, texto):
         """
