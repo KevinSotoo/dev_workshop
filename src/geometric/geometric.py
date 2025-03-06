@@ -69,126 +69,39 @@ class Geometria:
         return resultado
     
     def area_superficie_esfera(self, radio):
-        """
-        Calcula el área de la superficie de una esfera.
-        
-        Args:
-            radio (float): Radio de la esfera
-            
-        Returns:
-            float: Área de la superficie de la esfera
-        """
-        pass
-    
+        resultado=4*math.pi*radio**2
+        return resultado
+
     def volumen_cilindro(self, radio, altura):
-        """
-        Calcula el volumen de un cilindro.
-        
-        Args:
-            radio (float): Radio de la base del cilindro
-            altura (float): Altura del cilindro
-            
-        Returns:
-            float: Volumen del cilindro
-        """
-        pass
-    
+        resultado=math.pi*radio**2*altura
+        return resultado
+
     def area_superficie_cilindro(self, radio, altura):
-        """
-        Calcula el área de la superficie de un cilindro.
-        
-        Args:
-            radio (float): Radio de la base del cilindro
-            altura (float): Altura del cilindro
-            
-        Returns:
-            float: Área de la superficie del cilindro
-        """
-        pass
-    
+        resultado=2*math.pi*radio*(radio+altura)
+        return resultado
+
     def distancia_entre_puntos(self, x1, y1, x2, y2):
-        """
-        Calcula la distancia euclidiana entre dos puntos en un plano 2D.
-        
-        Args:
-            x1 (float): Coordenada x del primer punto
-            y1 (float): Coordenada y del primer punto
-            x2 (float): Coordenada x del segundo punto
-            y2 (float): Coordenada y del segundo punto
-            
-        Returns:
-            float: Distancia entre los dos puntos
-        """
-        pass
-    
+        resultado=math.sqrt((x2-x1)**2+(y2-y1)**2)
+        return resultado
+
     def punto_medio(self, x1, y1, x2, y2):
-        """
-        Calcula el punto medio entre dos puntos en un plano 2D.
-        
-        Args:
-            x1 (float): Coordenada x del primer punto
-            y1 (float): Coordenada y del primer punto
-            x2 (float): Coordenada x del segundo punto
-            y2 (float): Coordenada y del segundo punto
-            
-        Returns:
-            tuple: Coordenadas (x, y) del punto medio
-        """
-        pass
-    
+        resultado=((x1+x2)/2, (y1+y2)/2)
+        return resultado
+
     def pendiente_recta(self, x1, y1, x2, y2):
-        """
-        Calcula la pendiente de una recta que pasa por dos puntos.
-        
-        Args:
-            x1 (float): Coordenada x del primer punto
-            y1 (float): Coordenada y del primer punto
-            x2 (float): Coordenada x del segundo punto
-            y2 (float): Coordenada y del segundo punto
-            
-        Returns:
-            float: Pendiente de la recta
-        """
-        pass
-    
+        resultado=(y2-y1)/(x2-x1) if x2-x1!=0 else None
+        return resultado
+
     def ecuacion_recta(self, x1, y1, x2, y2):
-        """
-        Obtiene los coeficientes de la ecuación de una recta en la forma Ax + By + C = 0.
-        
-        Args:
-            x1 (float): Coordenada x del primer punto
-            y1 (float): Coordenada y del primer punto
-            x2 (float): Coordenada x del segundo punto
-            y2 (float): Coordenada y del segundo punto
-            
-        Returns:
-            tuple: Coeficientes (A, B, C) de la ecuación de la recta
-        """
-        pass
-    
+        A=y2-y1
+        B=x1-x2
+        C=A*x1+B*y1
+        return (A, B, -C)
+
     def area_poligono_regular(self, num_lados, lado, apotema):
-        """
-        Calcula el área de un polígono regular.
-        
-        Args:
-            num_lados (int): Número de lados del polígono
-            lado (float): Longitud de cada lado
-            apotema (float): Longitud de la apotema
-            
-        Returns:
-            float: Área del polígono regular
-        """
-        pass
-    
+        resultado=(num_lados*lado*apotema)/2
+        return resultado
+
     def perimetro_poligono_regular(self, num_lados, lado):
-        """
-        Calcula el perímetro de un polígono regular.
-        
-        Args:
-            num_lados (int): Número de lados del polígono
-            lado (float): Longitud de cada lado
-            
-        Returns:
-            float: Perímetro del polígono regular
-        """
-        pass
+        resultado=num_lados*lado
+        return resultado
