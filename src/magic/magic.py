@@ -4,77 +4,66 @@ class Magic:
     Incluye implementaciones de Fibonacci, números perfectos, triangulo de pascal etc.
     """
     
-    def fibonacci(self, n):
-        """
-        Calcula el n-ésimo número de la secuencia de Fibonacci.
-        
-        Args:
-            n (int): Posición en la secuencia (empezando desde 0)
-            
-        Returns:
-            int: El n-ésimo número de Fibonacci
-        """
-        pass
+    def fibonacci(self,n):
+        a,b=0,1
+        contador=0
+        while contador<n:
+            a,b=b,a+b
+            contador+=1
+        return a if n>0 else 0
     
-    def secuencia_fibonacci(self, n):
-        """
-        Genera los primeros n números de la secuencia de Fibonacci.
-        
-        Args:
-            n (int): Cantidad de números a generar
-            
-        Returns:
-            list: Lista con los primeros n números de Fibonacci
-        """
-        pass
+    def secuencia_fibonacci(self,n):
+        a,b=0,1
+        resultado=[]
+        contador=0
+        while contador<n:
+            resultado+=[a]
+            a,b=b,a+b
+            contador+=1
+        return resultado
     
-    def es_primo(self, n):
-        """
-        Verifica si un número es primo.
-        
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es primo, False en caso contrario
-        """
-        pass
-    
-    def generar_primos(self, n):
-        """
-        Genera una lista de números primos hasta n.
-        
-        Args:
-            n (int): Límite superior para generar primos
-            
-        Returns:
-            list: Lista de números primos hasta n
-        """
-        pass
+    def es_primo(self,n):
+        if n<2:
+            return False
+        i=2
+        while i*i<=n:
+            if n%i==0:
+                return False
+            i+=1
+        return True
+    def generar_primos(self,n):
+        resultado=[]
+        i=2
+        while i<=n:
+            if self.es_primo(i):
+                resultado+=[i]
+            i+=1
+        return resultado
     
     def es_numero_perfecto(self, n):
-        """
-        Verifica si un número es perfecto (igual a la suma de sus divisores propios).
-        
-        Args:
-            n (int): Número a verificar
-            
-        Returns:
-            bool: True si n es un número perfecto, False en caso contrario
-        """
-        pass
+        suma=1
+        i=2
+        while i*i<=n:
+            if n%i==0:
+                suma+=i
+                if i!=n//i:
+                    suma+=n//i
+            i+=1
+        return suma==n and n!=1
     
     def triangulo_pascal(self, filas):
-        """
-        Genera las primeras n filas del triángulo de Pascal.
-        
-        Args:
-            filas (int): Número de filas a generar
-            
-        Returns:
-            list: Lista de listas que representa el triángulo de Pascal
-        """
-        pass
+        resultado=[[1]]
+        i=1
+        while i<filas:
+            fila=[1]
+            x=1
+            while x<i:
+                fila+=[resultado[i-1][x-1]+resultado[i-1][x]]
+                x+=1
+            fila+=[1]
+            resultado+=[fila]
+            i+=1
+        return resultado
     
     def factorial(self, n):
         """
