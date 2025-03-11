@@ -14,20 +14,22 @@ class Data:
         x=0
         for valor in lista:
             if valor==elemento:
-                return x  #manda la posicion dentro de la lista
+                return x  
             x+=1
-        return "No encontrado"
+        return -1
     
-    def eliminar_duplicados(self, lista):
+    def eliminar_duplicados(self,lista):
         lista_nueva=[]
+        vistos=[]
         for elemento in lista:
-            contador=0
-            for x in lista_nueva:
-                if x==elemento:
-                    contador=1
-                    break
-            if contador==0:
-                lista_nueva+=[elemento]
+            existe=False
+            for x in vistos:
+                if elemento==x and (elemento is True)==(x is True):
+                 existe=True
+                 break
+            if not existe:
+             lista_nueva.append(elemento)
+             vistos.append(elemento)
         return lista_nueva
     
     def merge_ordenado(self, lista1, lista2):
@@ -58,13 +60,17 @@ class Data:
         k%=n
         return lista[-k:]+lista[:-k]
     
-    def encuentra_numero_faltante(self, lista):
+    def encuentra_numero_faltante(self,lista):
         total=0
-        n=0
+        conteo=0
         for numero in lista:
             total+=numero
-            n+=1
-        return (n*(n+1))//2-total #se usa formula de suma de los primeros n
+            conteo+=1
+        esperado=(conteo*(conteo+1))//2
+        return esperado-total
+
+
+
     
     def es_subconjunto(self, conjunto1, conjunto2):
         for elemento in conjunto1:
