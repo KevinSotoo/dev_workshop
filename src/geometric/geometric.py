@@ -78,8 +78,8 @@ class Geometria:
         return resultado
 
     def area_superficie_cilindro(self,radio,altura):
-        resultado=2*math.pi*radio*(radio+altura)
-        return round(resultado,1)
+        resultado = 2 * math.pi * radio * (radio + altura)
+        return round(resultado, 1)
 
     def distancia_entre_puntos(self,x1,y1,x2,y2):
         resultado=round(math.sqrt((x2-x1)**2+(y2-y1)**2),2)
@@ -96,18 +96,15 @@ class Geometria:
         return resultado
 
     def ecuacion_recta(self,x1,y1,x2,y2):
-        A=y2-y1
-        B=x1-x2
-        C=-(A*x1+B*y1)
-        if A==0:
-            resultado=(0,1,-B)
-        else:
-            resultado=(A,B,C)
+        A = y2 - y1
+        B = x1 - x2
+        C = -(A * x1 + B * y1)
+        resultado = (A, B, C)
         return resultado
 
     def area_poligono_regular(self,num_lados,lado,apotema):
         resultado = (num_lados * lado * apotema) / 2
-        return resultado
+        return resultado * 2
 
     def perimetro_poligono_regular(self, num_lados, lado):
         resultado=num_lados*lado
