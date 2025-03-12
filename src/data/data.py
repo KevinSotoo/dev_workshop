@@ -60,13 +60,22 @@ class Data:
         k%=n
         return lista[-k:]+lista[:-k]
     
-    def encuentra_numero_faltante(self,lista):
+    def encuentra_numero_faltante(self, lista):
         total=0
+        max_num=0
         conteo=0
+        
         for numero in lista:
             total+=numero
             conteo+=1
-        esperado=(conteo*(conteo+1))//2
+            if numero>max_num:
+                max_num=numero
+        
+        esperado = (max_num*(max_num+1))//2
+        
+        if conteo==max_num:
+            return max_num+1
+        
         return esperado-total
 
 
@@ -84,23 +93,24 @@ class Data:
         return True
     
     def implementar_pila(self):
-        pila=[]
+        self.pila = []
+        
         def push(valor):
-            pila+=[valor]
+            self.pila.append(valor)
         def pop():
-            if pila:
-                return pila.pop()
+            if self.pila:
+                return self.pila.pop()
         def peek():
-            if pila:
-                return pila[-1]
+            if self.pila:
+                return self.pila[-1]
         def is_empty():
-            return pila==[]
-        return {"push":push,"pop":pop,"peek":peek,"is_empty":is_empty}
+            return len(self.pila) == 0
+        return {"push": push, "pop": pop, "peek": peek, "is_empty": is_empty}
     
     def implementar_cola(self):
         cola=[]
         def enqueue(valor):
-            cola+=[valor]
+            cola.append(valor)
         def dequeue():
             if cola:
                 return cola.pop(0)
@@ -109,13 +119,23 @@ class Data:
                 return cola[0]
         def is_empty():
             return cola==[]
-        return {"enqueue":enqueue,"dequeue":dequeue,"peek":peek,"is_empty":is_empty}
+
+        return {"enqueue": enqueue, "dequeue": dequeue, "peek": peek, "is_empty": is_empty}
     
     def matriz_transpuesta(self, matriz):
-        filas=0
-        for x in matriz:
+        if not matriz:
+            return []
+        filas = 0
+        for _ in matriz:
             filas+=1
-        columnas=0
-        for y in matriz[0]:
+        columnas = 0
+        for _ in matriz[0]:
             columnas+=1
-        return [[matriz[fila][x] for fila in range(filas)] for x in range(columnas)]
+        transpuesta=[]
+        for col in range(columnas):
+            nueva_fila=[]
+            for fila in range(filas):
+                nueva_fila.append(matriz[fila][col])
+            transpuesta.append(nueva_fila)
+
+        return transpuesta
