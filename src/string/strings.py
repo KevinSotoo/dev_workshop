@@ -75,7 +75,7 @@ class Strings:
         mayus=True
         for letra in texto:        
             if mayus and ('a'<=letra<='z' or 'A'<=letra<='Z'):
-                resultado+=letra.upper()#sirve para convertir primer letra en mayus
+                resultado+=letra.upper()
                 mayus=False
             else:
                 resultado+=letra
@@ -115,7 +115,7 @@ class Strings:
         for simbolo in texto:
             if 'a'<=simbolo<='z':
                 mayuscula=simbolo.upper()
-                nueva_letra=((ord(mayuscula)-ord('A')+desplazamiento)%26)+ord('A')  ##Se usa ord para obtener el valor numerico del carácter y chr para convertirlo nuevamente en una letra 
+                nueva_letra=((ord(mayuscula)-ord('A')+desplazamiento)%26)+ord('A') 
                 resultado+=chr(nueva_letra)
             elif 'A'<=simbolo<='Z':
                 nueva_letra=((ord(simbolo)-ord('A')+desplazamiento)%26)+ord('A')
@@ -132,7 +132,7 @@ class Strings:
                 nueva_letra=((ord(mayuscula)-ord('A')-desplazamiento)%26)+ord('A')
                 resultado+=chr(nueva_letra)
             elif 'A'<=simbolo<='Z':
-                nueva_letra=((ord(simbolo)-ord('A')-desplazamiento)%26)+ord('A') ##con el menos invertimos la funcion anterior
+                nueva_letra=((ord(simbolo)-ord('A')-desplazamiento)%26)+ord('A')
                 resultado+=chr(nueva_letra)
             else:
                 resultado+=simbolo
