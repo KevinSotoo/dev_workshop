@@ -101,10 +101,10 @@ class Geometria:
         C = -A * x1 - B * y1  
         return (A, B, C)
 
-    def area_poligono_regular(self, num_lados, lado, apotema):
-        perimetro = num_lados * lado
+    def area_poligono_regular(self, num_lados, longitud_lado, apotema):
+        perimetro = num_lados * longitud_lado
         area = (perimetro * apotema) / 2
-        return round(area, 2)
+        return area
 
 
     def perimetro_poligono_regular(self, num_lados, lado):
