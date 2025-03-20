@@ -41,20 +41,23 @@ class Strings:
                 contador+=1
         return contador
     
-    def es_anagrama(self,texto1,texto2):
-        caracteres={}
+    def es_anagrama(self, texto1, texto2):
+        texto1 = texto1.replace(" ", "").lower()
+        texto2 = texto2.replace(" ", "").lower()
+        
+        caracteres = {}
         for letra in texto1:
             if letra in caracteres:
-                caracteres[letra]+=1
+                caracteres[letra] += 1
             else:
-                caracteres[letra]=1
+                caracteres[letra] = 1
         for letra in texto2:
             if letra in caracteres:
-                caracteres[letra]-=1
+                caracteres[letra] -= 1
             else:
                 return False
         for letra in caracteres:
-            if caracteres[letra]!=0:
+            if caracteres[letra] != 0:
                 return False
         return True
 
