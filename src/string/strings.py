@@ -13,6 +13,7 @@ class Strings:
                     texto_limpio += letra.lower()
                 else:
                     texto_limpio += letra
+
         i, j = 0, len(texto_limpio) - 1
         while i < j:
             if texto_limpio[i] != texto_limpio[j]:
@@ -20,7 +21,7 @@ class Strings:
             i += 1
             j -= 1
 
-            return True
+        return True
     
     def invertir_cadena(self,texto):
         resultado=""
