@@ -63,7 +63,7 @@ class Strings:
             else:
                 return False
         for letra in caracteres:
-            if caracteres[letra] != 0:
+            if caracteres[letra] !=0:
                 return False
         return True
 
