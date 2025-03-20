@@ -4,18 +4,23 @@ class Strings:
     Incluye funciones para manipular, validar y transformar strings.
     """
     
-    def es_palindromo(self,texto):
-        i=0
-        x=0
+    def es_palindromo(self, texto):
+        texto_limpio = ""
+
         for letra in texto:
-            x+=1
-        x-=1
-        while i<x:
-            if texto[i]!=texto[x]:
+            if letra != " ":
+                if "A" <= letra <= "Z":
+                    texto_limpio += letra.lower()
+                else:
+                    texto_limpio += letra
+        i, j = 0, len(texto_limpio) - 1
+        while i < j:
+            if texto_limpio[i] != texto_limpio[j]:
                 return False
-            i+=1
-            x-=1
-        return True
+            i += 1
+            j -= 1
+
+            return True
     
     def invertir_cadena(self,texto):
         resultado=""
